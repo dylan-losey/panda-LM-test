@@ -14,7 +14,7 @@ class Panda():
     # joints numbered 8 and 9 are meaningless, and are just used to build the robot model
     def __init__(self, basePosition, baseOrientation, jointStartPositions):
         self.urdfRootPath = pybullet_data.getDataPath()
-        self.panda = p.loadURDF(os.path.join(self.urdfRootPath,"franka_panda/panda.urdf"), 
+        self.panda = p.loadURDF("franka_panda/panda.urdf", 
                                                 basePosition=basePosition,
                                                 baseOrientation=baseOrientation,
                                                 useFixedBase=True)

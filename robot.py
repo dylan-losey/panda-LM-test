@@ -5,8 +5,7 @@ import os
 
 
 # class for the panda robot arm
-# here is the link to the urdf files used for the panda:
-# https://github.com/bulletphysics/bullet3/tree/master/examples/pybullet/gym/pybullet_data/franka_panda
+# URDF for the Panda is located in `franka_panda`
 class Panda():
 
     # the urdf for the panda robot has 11 joints

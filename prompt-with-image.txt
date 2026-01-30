@@ -56,23 +56,25 @@ This Python code includes a sequence of functions that move the end-effector of 
 
 - You are responsible for completing the task using the available functions, common sense, and the object data.
 - You are able to call any of the following Python functions, as often as needed:
-  1. **`detect_object(object_or_object_part: str) -> None`**  
+  1. **`get_image() -> None`**  
+     - This function will not return anything, but the next user message will contain an image of the scene taken from the robot's prespective.
+  2. **`detect_object(object_or_object_part: str) -> None`**  
      - This function will not return anything, but the next user message will contain data such as the position, orientation, height, or width of the specified object or object part. This data will be in the base-aligned XYZ frame described above.
-  2. **`move_to_position(xyz_position: list[x, y, z]) -> None`**  
+  3. **`move_to_position(xyz_position: list[x, y, z]) -> None`**  
      - This function will move the tip of the robot's fingers to the specified **position** in the base-aligned XYZ frame described above.
-  3. **`top_grasp(angle: float) -> None`**  
+  4. **`top_grasp(angle: float) -> None`**  
      - This function will orient the robot's gripper for a top grasp at the specified **angle** around the world z-axis.
-  4. **`side_grasp_vertical(angle: float) -> None`**  
+  5. **`side_grasp_vertical(angle: float) -> None`**  
      - This function will orient the robot's gripper for a side grasp at the specified **angle** around the world z-axis. The gripper fingers move in ±z directions, pinching objects from above and below.
-  5. **`side_grasp_horizontal(angle: float) -> None`**  
+  6. **`side_grasp_horizontal(angle: float) -> None`**  
      - This function will orient the robot's gripper for a side grasp at the specified **angle** around the world z-axis. The gripper fingers move perpendicular to the z-axis, pinching objects from left and right.
-  6. **`spin_gripper(theta: float) -> None`**  
+  7. **`spin_gripper(theta: float) -> None`**  
      - This function will **spin the gripper fingers** in a circle by theta radians. Fingers spin in the local frame.
-  7. **`open_gripper() -> None`**  
+  8. **`open_gripper() -> None`**  
      - This function will **open the gripper** on the robot arm.
-  8. **`close_gripper() -> None`**  
+  9. **`close_gripper() -> None`**  
      - This function will **close the gripper** on the robot arm.
-  9. **`task_completed() -> None`**  
+  10. **`task_completed() -> None`**  
       - Call this function **only when the task has been completed**.
 - **Important**: After calling the `detect_object` function as many times as necessary, do not output further code or text. Be specific about which objects or parts of the objects you want to detect.
 
@@ -83,6 +85,10 @@ This Python code includes a sequence of functions that move the end-effector of 
 - When using the functions, specify the required parameters, and document them clearly in the code.  
 - Wrap code in a Python code block using ```python ... ```.  
 - Follow the workflow below to generate your Python code:
+
+#### **Part 0: Initialization**
+- Use the `get_image` function to obtain an image of the scene.
+- After calling `get_image` do not output further code or text.
 
 #### **Part 1: Detection**
 - In **Detection**, output reasoning text first, then one or more `detect_object` calls in a Python code block, and then stop output.  

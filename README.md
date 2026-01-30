@@ -1,16 +1,40 @@
-# panda-LM-test
-internal code for testing LM robot control
+# LM-Updates
 
-## updates
+Internal code for testing versions of LM control for robot arms
 
-- fixed move_to_pose so the robot actually goes where it is supposed to
-	[solution was to remove internal collisions and joint limits, fine for simulation]
-- updated the prompt and settings in qwen to remove internal memory
-	[settings changed to reflect this, can delete chats occationally to make sure]
-- used Qwen, Gemini to refine the prompt
-	[how would you format this, how would you improve this, any parts unclear, etc.]
-- added parameterized functions (skills?) for different types of grasps
-	[side grasp, top down grasp, etc.]
-- my impression is that it is very close, and just needs minor tuning to complete tasks.
-- added an image step so that the robot can reason over an initial image of the scene.
-	[images are sim, so maybe not realistic enough to always work]
+## Main Updates
+
+- modified robot URDF files to increase the workspace
+- added new functions (skills) for different types of grasps and grasp angles
+- iteratively modified prompt through trial and error
+- added ability to take initial image of environment, can use with VLM
+
+## What's Missing?
+
+- the commands are often very close to correct, but still need minor tweaks
+- images are simulated, and may not be realistic enough to work perfectly
+- want to incorporate a knowledge base to add skills / feedback associated with keywords
+- target tasks: "put the cube in the drawer," "put the cube in the microwave"
+
+## Install and Run
+
+```bash
+
+# Download
+git clone https://github.com/dylan-losey/panda-LM-test
+cd panda-LM-test
+
+# Create and source virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip install numpy pybullet matplotlib
+
+# Run the script
+python main.py
+```
+
+## Prompts
+
+I provide two prompts. Really it is the same thing, but `prompt-with-image.txt` has some additional text and commands if you want to provide the image of the scene within the conversation.
